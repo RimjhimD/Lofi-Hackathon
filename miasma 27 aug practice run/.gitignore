@@ -1,0 +1,22 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+
+# Secrets. The preflight script also greps for key material before you push,
+# because a leaked key in a public hackathon repo is unrecoverable — rotating
+# is the only fix and you will not have time.
+.env
+.env.*
+!.env.example
+!.env.demo
+*.pem
+*.key
+secrets/
+.wrangler/
+
+# Screenshots of credentials. This has happened before.
+*aistudio-key*
+*api-key*
+*-keys.png
+*login-state*

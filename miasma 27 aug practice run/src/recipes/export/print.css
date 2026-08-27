@@ -1,0 +1,94 @@
+/**
+ * print.css — pairs with printable.js's printElement().
+ *
+ * Import once, globally (e.g. `@import "../recipes/export/print.css";` in
+ * src/app.css, or `import "./print.css"` in your entry file — Vite handles
+ * either).
+ *
+ * Two independent things live in this file:
+ *
+ *  1. `.no-print` — put this class on navigation, buttons, forms, anything
+ *     that is app chrome rather than the thing being printed. Hidden only
+ *     when actually printing.
+ *
+ *  2. The `#export-print-root` / `html.export-is-printing` rules — the
+ *     machinery printElement() uses to print ONE element instead of the
+ *     whole page. printElement() clones the target into a hidden container
+ *     with this id and toggles this class on <html> right before calling
+ *     window.print(), then removes both right after. These rules are what
+ *     make that swap actually hide everything else during the print job.
+ */
+
+/* Chrome that should never appear on paper. */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* The print-root clone is always hidden on screen — it's a duplicate of
+   content already visible elsewhere, only meant to exist for the instant
+   window.print() is open. */
+#export-print-root {
+  display: none;
+}
+
+@media print {
+  /* While printElement() is active, everything under <body> except the
+     clone is hidden, and the clone itself is shown. If printElement()'s
+     cleanup ever failed to run (it has two independent cleanup paths — see
+     printable.js), this rule only ever affects the print/print-preview
+     surface, never the normal on-screen app. */
+  html.export-is-printing > body > *:not(#export-print-root) {
+    display: none !important;
+  }
+  html.export-is-printing #export-print-root {
+    display: block !important;
+  }
+
+  @page {
+    size: auto;
+    margin: 12mm;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+  }
+
+  #export-print-root {
+    /* Backgrounds that carry meaning (status pills, brand color, a paid/
+       unpaid stripe on a receipt) survive the browser's default "strip
+       backgrounds to save ink" behavior. Printers/PDF export can still be
+       told to skip backgrounds by the user — this just stops the browser
+       from doing it silently by default. */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Never let a table row, list item, or anything explicitly marked get cut
+     across a page break — a row split in half is the single most common
+     "this looks broken" complaint about a printed report. */
+  #export-print-root tr,
+  #export-print-root li,
+  #export-print-root .print-avoid-break {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  #export-print-root table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #export-print-root img {
+    max-width: 100%;
+  }
+
+  /* A link's href is invisible on screen and meaningless on paper once the
+     app moves off this URL — don't spam the printout with raw URLs some
+     browsers auto-append after every <a>. */
+  #export-print-root a[href]::after {
+    content: '' !important;
+  }
+}

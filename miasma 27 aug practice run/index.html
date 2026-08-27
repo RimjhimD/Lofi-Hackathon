@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#1f2937" />
+
+    <!-- Rename these three at minute 25. A judge sharing the link sees this. -->
+    <title>Relief Lens — flood shelter coordination</title>
+    <meta name="description" content="Rename me before you demo." />
+    <meta property="og:title" content="Starter" />
+
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <style>
+      @keyframes rl-rise { from { opacity: 0; transform: translateY(10px) } to { opacity: 1; transform: none } }
+      @keyframes rl-fade { from { opacity: 0; transform: translateY(4px) } to { opacity: 1; transform: none } }
+      @keyframes rl-pop  { from { opacity: 0; transform: scale(.96) } to { opacity: 1; transform: none } }
+      /* Marker drop-in, staggered by Leaflet's own paint order. */
+      .leaflet-marker-pane > *, .leaflet-overlay-pane path { animation: rl-pop .45s ease-out both }
+      .leaflet-popup-content-wrapper { border-radius: 14px; box-shadow: 0 10px 30px rgb(15 23 42 / .18) }
+      .leaflet-popup-content { margin: 12px 14px }
+      .leaflet-container { font: inherit }
+      .rl-popup h3 { font-size: .95rem; font-weight: 650; margin: 0 }
+      .rl-popup .rl-dim { color: #64748b; font-size: .75rem; margin: .1rem 0 0 }
+      .rl-popup .rl-level { font-weight: 650; font-size: .8rem; margin: .4rem 0 .1rem }
+      .rl-popup .rl-count { font-size: .82rem; margin: 0 0 .45rem }
+      .rl-popup .rl-heading { font-size: .65rem; text-transform: uppercase; letter-spacing: .06em; color: #94a3b8; margin: 0 }
+      .rl-popup .rl-needs { list-style: none; margin: .3rem 0 0; padding: 0; font-size: .82rem }
+      .rl-popup .rl-needs li { display: flex; justify-content: space-between; gap: 1rem; padding: .15rem 0; border-bottom: 1px solid #f1f5f9 }
+      .rl-popup .rl-needs li:last-child { border-bottom: 0 }
+      @media (prefers-reduced-motion: reduce) { *, ::before, ::after { animation-duration: .01ms !important; transition-duration: .01ms !important } }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

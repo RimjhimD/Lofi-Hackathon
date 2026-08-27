@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drill problem — sealed until timer starts</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font-family: ui-sans-serif, system-ui, sans-serif; max-width: 46rem;
+         margin: 2rem auto; padding: 0 1.25rem; line-height: 1.6; }
+  h1, h2 { line-height: 1.25; }
+  code { background: rgba(127,127,127,.15); padding: .1em .35em; border-radius: 4px; }
+  .seal { border: 2px solid #d97706; border-radius: 10px; padding: 1rem 1.25rem;
+          background: rgba(217,119,6,.08); }
+  details { margin-top: 1.5rem; }
+  summary { cursor: pointer; font-weight: 700; font-size: 1.05rem;
+            padding: .75rem 1rem; border: 1px solid rgba(127,127,127,.4);
+            border-radius: 8px; }
+  .bullet { border-left: 4px solid #2563eb; padding: .5rem 1rem; margin: 1rem 0;
+            background: rgba(37,99,235,.06); border-radius: 0 8px 8px 0; }
+  .bullet b { display: block; margin-bottom: .25rem; }
+  table { border-collapse: collapse; }
+  td, th { border: 1px solid rgba(127,127,127,.4); padding: .35rem .6rem; text-align: left; }
+</style>
+</head>
+<body>
+
+<div class="seal">
+  <strong>⚠ Sealed drill problem — 27 Aug dry run (2 hours, hard stop).</strong><br>
+  Do not expand below until the countdown is running. Meeting the problem cold is
+  the entire point of the drill — on the real night you see nothing before 18:00.
+</div>
+
+<details>
+<summary>▶ Timer started? Click to reveal the problem.</summary>
+
+<h1>Problem 7 — Relief Lens <small>(Tier: Hard)</small></h1>
+
+<p><b>Category:</b> Civic / crisis response<br>
+<b>Stack:</b> any — must be live on a public URL at submission</p>
+
+<h2>Background</h2>
+
+<p>Every monsoon, upazila-level relief coordination in Bangladesh runs on phone
+calls and paper lists. When a flood hits, the Deputy Commissioner's office
+receives shelter status by SMS from field volunteers, aid inventory arrives as
+Excel sheets from NGOs, and nobody has a single picture of where people are and
+what they need. Decisions that should take minutes take hours.</p>
+
+<p>Build <b>Relief Lens</b>: a coordination dashboard a DC office could actually
+use during a flood — shelters on a map, live capacity, incoming aid stock, and a
+matching view that shows which shelters are critically short of which supplies.</p>
+
+<h2>MVP requirements (pass/fail — all judged on the live URL)</h2>
+
+<div class="bullet"><b>1. Shelter map with live status.</b>
+An interactive map of the district showing every shelter as a marker,
+colour-coded by occupancy level (OK / near-full / over capacity). Clicking a
+marker shows the shelter's name, current headcount, capacity, and its three
+most-needed supply items. The app must load with realistic seeded data — a judge
+opening the URL cold must see a believable district in mid-flood, not an empty
+map.</div>
+
+<div class="bullet"><b>2. Field update entry.</b>
+A volunteer-facing form to submit a status update for a shelter: headcount,
+urgent needs (from a fixed supply list), and a free-text note. Submitting must
+update the map marker's colour and popup <b>without a page reload</b>, and the
+update must appear in a visible "recent updates" feed with a relative timestamp
+("2 min ago").</div>
+
+<div class="bullet"><b>3. Aid inventory import.</b>
+Upload a CSV of incoming aid consignments (columns: <code>ngo_name, item,
+quantity, unit, eta_hours</code>) — the app must parse it, reject malformed rows
+with a visible per-row error report (not a silent drop and not a crash), and
+merge valid rows into a searchable, filterable inventory table. A sample CSV
+must be downloadable from the app itself so the judge can test the flow.</div>
+
+<div class="bullet"><b>4. Shortage matching board.</b>
+A view that crosses shelter needs against imported inventory and ranks shelters
+by severity: for each critically short item, show which shelters need it, how
+much stock exists across all consignments, and the gap. Severity must be visibly
+explained (the judge should understand <i>why</i> shelter X outranks shelter Y
+without asking), and the board must update when either a field update or a CSV
+import changes the underlying data.</div>
+
+<h2>Notes from the organisers</h2>
+<ul>
+  <li>Seeded demo data is not optional — an empty app fails bullet 1.</li>
+  <li>"Live" means the deployed public URL. Localhost demos are not judged.</li>
+  <li>Any data source may be fictional, but units and geography should be
+      plausible for a Bangladeshi district (BDT, bags/kg/litres, real upazila
+      names welcome).</li>
+</ul>
+
+<h2>Submission (at the 2-hour mark — hard stop, mirrors the real event)</h2>
+<ol>
+  <li><b>Live public URL</b> — the deployed app, working. Localhost scores zero.</li>
+  <li><b>Repo</b> — pushed, with <code>README.md</code> (what it is, how to run)
+      and <code>LICENSES.md</code> (every dependency, its licence).</li>
+  <li><b>60-second demo video</b> — walk the four bullets on the live URL, in
+      order. Record it inside the last 15 minutes; follow your acceptance
+      script.</li>
+</ol>
+
+<h2>Stretch (unscored in this drill — only after 4/4)</h2>
+<ul>
+  <li>Bengali/English label toggle</li>
+  <li>Shelter-level trend sparkline (headcount over time)</li>
+  <li>Printable one-page situation report</li>
+</ul>
+
+</details>
+
+</body>
+</html>
