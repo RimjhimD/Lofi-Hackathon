@@ -42,6 +42,17 @@ against the real container, and `subscribeChanges()` shared one fixed-name
 Supabase channel across every caller, which threw on the second subscriber and
 took the whole React tree down on sign-in.
 
+## How it scored
+
+Judged against the official rubric by the team's own judging harness:
+**50.75 / 100** — full breakdown in `SCORECARD.md`, and what to change before
+30 August in `IMPROVEMENT-GUIDE.md`.
+
+The short version: the engineering underneath was rated top-decile for a
+two-hour build, and the score was middling anyway, because the demo's headline
+mechanic was broken, the README asserted it worked, and the team committed to
+within 43 seconds of the hard stop and scored 0/10 on speed.
+
 ## Running it
 
 ```bash
