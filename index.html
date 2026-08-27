@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LofiStack Hackathon 2026 — Everything, on one page</title>
+<meta name="description" content="Unofficial single-page reference for the LofiStack Hackathon 2026: dates, prizes, rules, the full 100-mark scoring rubric, submission checklist, ownership terms and FAQ.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Chakra+Petch:wght@600;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#2B0A49; --bg-deep:#230739; --bg-lift:#37105C; --ink:#150621;
+  --lime:#C7F53C; --pink:#FF3DA6; --pink-soft:#FF6FBE;
+  --violet:#8B2BE8; --violet-lite:#A44BFF; --white:#fff;
+  --muted:#C9B6DE; --line:rgba(255,255,255,.14);
+  --display:'Anton',Impact,sans-serif;
+  --ui:'Chakra Petch',system-ui,sans-serif;
+  --body:'Outfit',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:74px}
+body{
+  margin:0;background:var(--bg-deep);color:var(--white);
+  font-family:var(--body);font-weight:300;font-size:17px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-1;
+  background:
+    radial-gradient(900px 600px at 12% -8%, rgba(139,43,232,.55), transparent 60%),
+    radial-gradient(800px 520px at 92% 4%, rgba(255,61,166,.28), transparent 62%),
+    radial-gradient(1100px 700px at 50% 108%, rgba(199,245,60,.10), transparent 60%),
+    var(--bg-deep);
+}
+a{color:var(--lime);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+
+/* ---------- nav ---------- */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(21,6,33,.82);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+nav .wrap{display:flex;align-items:center;gap:18px;height:64px}
+.brand{font-family:var(--display);font-size:20px;letter-spacing:.5px;color:var(--white);white-space:nowrap}
+.brand span{color:var(--lime)}
+.navlinks{display:flex;gap:16px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{
+  font-family:var(--ui);font-weight:600;font-size:13px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--muted);white-space:nowrap
+}
+.navlinks a:hover{color:var(--lime);text-decoration:none}
+
+/* ---------- hero ---------- */
+header{padding:76px 0 56px;text-align:center}
+.kicker{
+  font-family:var(--ui);font-weight:700;font-size:12px;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--pink-soft);margin-bottom:20px
+}
+h1{
+  font-family:var(--display);font-weight:400;line-height:.92;margin:0 0 6px;
+  font-size:clamp(46px,10vw,104px);letter-spacing:-.01em;text-transform:uppercase
+}
+h1 em{font-style:normal;color:var(--lime);display:block}
+.lede{max-width:640px;margin:22px auto 0;color:#E6DAF4;font-size:19px}
+.badges{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:30px 0 0}
+.badge{
+  font-family:var(--ui);font-weight:600;font-size:13px;letter-spacing:.04em;
+  border:1px solid var(--line);border-radius:999px;padding:7px 15px;
+  background:rgba(255,255,255,.05);color:#EEE4FA
+}
+.badge.hot{border-color:var(--lime);color:var(--lime);background:rgba(199,245,60,.08)}
+
+/* countdown */
+.countdown{display:flex;gap:12px;justify-content:center;margin:38px 0 8px;flex-wrap:wrap}
+.cd{
+  min-width:92px;padding:14px 8px;border-radius:14px;
+  background:linear-gradient(180deg,var(--bg-lift),rgba(43,10,73,.6));
+  border:1px solid var(--line)
+}
+.cd b{display:block;font-family:var(--display);font-size:38px;line-height:1;font-weight:400}
+.cd span{font-family:var(--ui);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.cd-note{font-family:var(--ui);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- sections ---------- */
+section{padding:62px 0;border-top:1px solid var(--line)}
+h2{
+  font-family:var(--display);font-weight:400;text-transform:uppercase;
+  font-size:clamp(30px,5vw,46px);line-height:1;margin:0 0 10px;letter-spacing:.01em
+}
+h2 .num{color:var(--pink);font-size:.5em;vertical-align:super;margin-right:10px;letter-spacing:.1em}
+.sub{color:var(--muted);max-width:680px;margin:0 0 30px}
+h3{
+  font-family:var(--ui);font-weight:700;font-size:19px;letter-spacing:.01em;
+  margin:32px 0 12px;color:var(--white)
+}
+h4{font-family:var(--ui);font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--lime);margin:24px 0 8px}
+p{margin:0 0 14px}
+ul{margin:0 0 16px;padding-left:20px}
+li{margin-bottom:8px}
+strong{font-weight:600;color:var(--white)}
+
+/* cards */
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.card{
+  background:linear-gradient(180deg,rgba(55,16,92,.75),rgba(35,7,57,.55));
+  border:1px solid var(--line);border-radius:16px;padding:20px 20px 18px
+}
+.card h3{margin-top:0}
+.card .big{font-family:var(--display);font-size:40px;line-height:1;color:var(--lime);font-weight:400}
+.card .big.pink{color:var(--pink)}
+.card .lbl{font-family:var(--ui);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.card p{font-size:15px;color:#DCCFEC;margin-bottom:0}
+
+/* timeline */
+.tl{list-style:none;padding:0;margin:0;border-left:2px solid rgba(199,245,60,.35)}
+.tl li{position:relative;padding:0 0 24px 26px;margin:0}
+.tl li::before{
+  content:"";position:absolute;left:-8px;top:7px;width:14px;height:14px;border-radius:50%;
+  background:var(--lime);box-shadow:0 0 0 4px rgba(199,245,60,.15)
+}
+.tl li.past::before{background:var(--violet-lite);box-shadow:0 0 0 4px rgba(164,75,255,.15)}
+.tl .when{font-family:var(--ui);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--pink-soft)}
+.tl .what{font-family:var(--ui);font-weight:700;font-size:17px;display:block;margin:2px 0 3px}
+.tl .det{font-size:15px;color:#D5C6E6}
+
+/* tables */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;margin:0 0 18px}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:15px}
+th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{
+  font-family:var(--ui);font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--lime);background:rgba(21,6,33,.55);white-space:nowrap
+}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:rgba(255,255,255,.035)}
+td.num,th.num{text-align:right;font-family:var(--ui);font-weight:700;white-space:nowrap}
+.total td{background:rgba(199,245,60,.08);font-weight:600;color:var(--lime)}
+
+/* callouts */
+.note{
+  border-left:3px solid var(--lime);background:rgba(199,245,60,.07);
+  padding:14px 18px;border-radius:0 12px 12px 0;margin:18px 0;font-size:15.5px
+}
+.warn{border-left-color:var(--pink);background:rgba(255,61,166,.09)}
+.note p:last-child{margin-bottom:0}
+
+/* rule list */
+.rules{list-style:none;padding:0;margin:0;counter-reset:r}
+.rules li{
+  counter-increment:r;position:relative;padding:16px 0 16px 52px;border-bottom:1px solid var(--line)
+}
+.rules li:last-child{border-bottom:0}
+.rules li::before{
+  content:counter(r,decimal-leading-zero);position:absolute;left:0;top:16px;
+  font-family:var(--display);font-size:22px;color:var(--pink);line-height:1
+}
+.rules b{display:block;font-family:var(--ui);font-weight:700;font-size:17px;margin-bottom:4px}
+.rules span{color:#D5C6E6;font-size:15.5px}
+
+/* checklist */
+.check{list-style:none;padding:0;margin:0}
+.check li{position:relative;padding-left:32px;margin-bottom:12px}
+.check li::before{
+  content:"✓";position:absolute;left:0;top:-1px;color:var(--ink);background:var(--lime);
+  width:20px;height:20px;border-radius:6px;display:grid;place-items:center;font-size:13px;font-weight:700
+}
+
+/* faq */
+details{border:1px solid var(--line);border-radius:12px;margin-bottom:10px;background:rgba(55,16,92,.4);overflow:hidden}
+summary{
+  cursor:pointer;padding:14px 18px;font-family:var(--ui);font-weight:600;font-size:16px;
+  list-style:none;display:flex;gap:12px;align-items:flex-start
+}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";color:var(--lime);font-weight:700;flex:0 0 auto}
+details[open] summary::before{content:"–"}
+details[open] summary{color:var(--lime)}
+details .ans{padding:0 18px 16px 42px;color:#D9CBE9;font-size:15.5px}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:44px 0 60px;color:var(--muted);font-size:14.5px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between}
+.disclaimer{
+  border:1px dashed rgba(255,255,255,.22);border-radius:12px;padding:14px 18px;
+  font-size:14px;color:var(--muted);margin-top:24px
+}
+@media (max-width:620px){
+  body{font-size:16px}
+  section{padding:48px 0}
+  .navlinks{gap:13px}
+  .cd{min-width:74px}
+  .cd b{font-size:30px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">LOFI<span>STACK</span> ’26</div>
+    <div class="navlinks">
+      <a href="#glance">At a glance</a>
+      <a href="#dates">Dates</a>
+      <a href="#prizes">Prizes</a>
+      <a href="#rules">Rules</a>
+      <a href="#scoring">Scoring</a>
+      <a href="#submit">Submission</a>
+      <a href="#internship">Internships</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">Sunday 30 August 2026 · Online · Bangladesh</div>
+    <h1>4 Hours · 2 Problems<em>One Team</em></h1>
+    <p class="lede">
+      LofiStack Hackathon 2026 is a four-hour build sprint. Twelve problems drop at 6:00 PM,
+      your team picks two, and both have to be live and working by 10:00 PM. BDT 50,000 in prizes
+      and up to three internships. Free to enter.
+    </p>
+
+    <div class="countdown" id="cd">
+      <div class="cd"><b data-cd="d">--</b><span>Days</span></div>
+      <div class="cd"><b data-cd="h">--</b><span>Hours</span></div>
+      <div class="cd"><b data-cd="m">--</b><span>Mins</span></div>
+      <div class="cd"><b data-cd="s">--</b><span>Secs</span></div>
+    </div>
+    <div class="cd-note" id="cdnote">until problems drop — 30 Aug, 18:00 BST</div>
+
+    <div class="badges">
+      <span class="badge hot">BDT 50,000 in prizes</span>
+      <span class="badge">Up to 3 internships</span>
+      <span class="badge">Free to join</span>
+      <span class="badge">Teams of 2–4</span>
+      <span class="badge">All AI tools allowed</span>
+      <span class="badge">Virtual event</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ AT A GLANCE ============ -->
+<section id="glance">
+  <div class="wrap">
+    <h2><span class="num">01</span>At a glance</h2>
+    <p class="sub">The whole event in nine numbers and four steps.</p>
+
+    <div class="grid g4">
+      <div class="card"><div class="big">4</div><div class="lbl">Hours to build</div></div>
+      <div class="card"><div class="big">2</div><div class="lbl">Projects shipped</div></div>
+      <div class="card"><div class="big">12</div><div class="lbl">Problems released</div></div>
+      <div class="card"><div class="big">100</div><div class="lbl">Marks, published in advance</div></div>
+    </div>
+
+    <h3>How it runs</h3>
+    <div class="grid g4">
+      <div class="card">
+        <h4>01 · Register</h4>
+        <p>The team leader registers everyone. Teams of 2 to 4. Free, no team cap. 19–27 August.</p>
+      </div>
+      <div class="card">
+        <h4>02 · Accept terms</h4>
+        <p>Every member gets their own link and signs for themselves. The team isn’t confirmed until all have.</p>
+      </div>
+      <div class="card">
+        <h4>03 · Build</h4>
+        <p>Twelve problems drop at 6:00 PM sharp. Pick two. Cameras on, in a supervised Discord room.</p>
+      </div>
+      <div class="card">
+        <h4>04 · Results</h4>
+        <p>One week later. Every team that submits gets a full score breakdown and the judges’ notes.</p>
+      </div>
+    </div>
+
+    <div class="tablewrap" style="margin-top:26px">
+      <table>
+        <tbody>
+          <tr><th>Event</th><td>LofiStack Hackathon 2026 — 4-Hour Build Sprint</td></tr>
+          <tr><th>Run by</th><td>LofiStack and AskTechGuy, together. Registration and the event site on LofiStack; repositories and the finalist showcase on AskTechGuy.</td></tr>
+          <tr><th>Date</th><td>Sunday 30 August 2026</td></tr>
+          <tr><th>Build window</th><td>18:00 → 22:00 Bangladesh Standard Time. Hard start, hard stop.</td></tr>
+          <tr><th>Format</th><td>Entirely online. Each team gets a private Discord room with a proctor in it.</td></tr>
+          <tr><th>Team size</th><td>2 to 4 people. Every team scored identically regardless of size.</td></tr>
+          <tr><th>Eligibility</th><td>Anyone based in Bangladesh; members abroad may enter but must attend the full live window in BST. Minimum age 16 (under 18 needs signed guardian consent). Students, professionals, freelancers and agency teams all welcome.</td></tr>
+          <tr><th>Cost</th><td>Free. No entry fee, nothing to pay at any stage.</td></tr>
+          <tr><th>Problems</th><td>12 released at 18:00:00, each tagged Easy / Medium / Hard. Each team picks exactly 2.</td></tr>
+          <tr><th>Results</th><td>~6 September. Personalised score breakdown to every submitting team; public results page with project name and live URL.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DATES ============ -->
+<section id="dates">
+  <div class="wrap">
+    <h2><span class="num">02</span>The dates that matter</h2>
+    <p class="sub">All times Bangladesh Standard Time (UTC+06).</p>
+
+    <ul class="tl">
+      <li class="past">
+        <div class="when">Wed 19 August</div>
+        <span class="what">Registration opens</span>
+        <div class="det">Nine days to get your team together, then it closes for good.</div>
+      </li>
+      <li>
+        <div class="when">Thu 27 August · 23:59</div>
+        <span class="what">Registration closes</span>
+        <div class="det">Hard deadline. No late entries. The rules also freeze at this point — nothing changes afterwards.</div>
+      </li>
+      <li>
+        <div class="when">Sat 29 August · 16:00</div>
+        <span class="what">Live Q&amp;A on Discord</span>
+        <div class="det">Voice, around 45 minutes, optional. Every question welcome except the problems.</div>
+      </li>
+      <li>
+        <div class="when">Sun 30 August · 17:00</div>
+        <span class="what">Team rooms open</span>
+        <div class="det">Attendance and device check.</div>
+      </li>
+      <li>
+        <div class="when">Sun 30 August · 17:30</div>
+        <span class="what">Briefing</span>
+        <div class="det">Streamed on YouTube; participants are not on camera on the main stage.</div>
+      </li>
+      <li>
+        <div class="when">Sun 30 August · 18:00 → 22:00</div>
+        <span class="what">Build window</span>
+        <div class="det">Problems released at 18:00:00, not before. Hard start, hard stop. Camera checks around 18:30, 19:30, 20:30 and 21:30.</div>
+      </li>
+      <li>
+        <div class="when">Sun 30 August · 22:00</div>
+        <span class="what">Submissions close</span>
+        <div class="det">Repository write access revoked, every live URL health-checked and screenshotted. That capture is what gets judged.</div>
+      </li>
+      <li>
+        <div class="when">Sun 6 September</div>
+        <span class="what">Results and offers</span>
+        <div class="det">Score breakdown plus judges’ notes to every submitting team. Certificates to every verified participant who submits.</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ PRIZES ============ -->
+<section id="prizes">
+  <div class="wrap">
+    <h2><span class="num">03</span>Prizes</h2>
+    <p class="sub">BDT 50,000 in cash shared by three teams, plus internship offers decided on how you work rather than where you finish.</p>
+
+    <div class="grid g3">
+      <div class="card">
+        <div class="big">30,000</div><div class="lbl">BDT · Winning team</div>
+        <p style="margin-top:12px">Paid by direct bank transfer to the registered team leader within five working days of complete documentation.</p>
+      </div>
+      <div class="card">
+        <div class="big pink">10,000</div><div class="lbl">BDT · Runner-up ×2</div>
+        <p style="margin-top:12px">Two teams, the same prize each. There is no first or second between them.</p>
+      </div>
+      <div class="card">
+        <div class="big">3</div><div class="lbl">Internships (up to)</div>
+        <p style="margin-top:12px">Three months at LofiStack. Offered to individuals, not teams — see below.</p>
+      </div>
+    </div>
+
+    <div class="note">
+      <p><strong>Payout mechanics.</strong> The full prize goes to the registered Team Leader’s account; splitting it inside the team is the team’s own arrangement and LofiStack takes no part in it — decide it before you register. Amounts are gross; any deduction required by Bangladesh tax law is applied and a certificate issued. Payout needs a national ID copy from the receiving member and a signed receipt. If the Team Leader is under 18, payment goes to a guardian’s account against the guardian’s ID and signature.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RULES ============ -->
+<section id="rules">
+  <div class="wrap">
+    <h2><span class="num">04</span>The nine rules that decide your night</h2>
+    <p class="sub">Everything is published before registration opens, so you can read exactly how you’ll be judged and then decide.</p>
+
+    <ol class="rules">
+      <li><b>Teams of 2 to 4, and everyone signs for themselves</b><span>Bring your own complete team — there is no team-matching pool. Every team is scored the same way regardless of size. The Team Leader submits the team’s verification video; each member accepts the terms with their own email. The leader cannot accept on anyone else’s behalf.</span></li>
+      <li><b>All AI tools are allowed</b><span>Claude, ChatGPT, Cursor, Copilot, Gemini — anything. No limits and nothing to declare. How well you direct them is part of what’s being looked at.</span></li>
+      <li><b>Your setup is your responsibility</b><span>Internet, electricity, laptop, camera, microphone. You’re asked for a backup plan at registration because you’re expected to have one: a second connection, a charged power bank, everything tested before the day.</span></li>
+      <li><b>A dead connection does not stop the clock</b><span>If you drop, the four hours keep running. No restart, no extra time, no re-run. Post in your team channel when you’re back so there’s a record. The only exception is an area-wide outage taking your whole team offline at once, judged by the event lead on the night.</span></li>
+      <li><b>Camera on, and a proctor is in the room</b><span>A proctor sits in your room for the full four hours, with four formal checks announced in your channel beforehand. Failing to appear within 3 minutes of a formal check is the violation. Blurred or virtual backgrounds are completely fine.</span></li>
+      <li><b>Everything runs through your team channel</b><span>Once confirmed you get a private Discord channel with your proctor in it. Camera checks, outage reports, questions and submission links all go there. The server is for confirmed teams only.</span></li>
+      <li><b>Host it anywhere, but it must open at 10:00 PM</b><span>Vercel, Netlify, Render, Cloudflare, your own server. Every URL is health-checked and screenshotted once at the close, and that capture is what gets judged. A free instance asleep at 21:55, or a deploy you broke at 21:58, is on you.</span></li>
+      <li><b>Your speed bonus comes from your last commit</b><span>Keep building and your judged score goes up while the speed bonus comes down. Stop early and you keep the bonus. The bonus is zero unless 3 of the 4 required MVP bullets work on <em>both</em> problems.</span></li>
+      <li><b>Open source is fine, with two limits</b><span>No AGPL, GPL, LGPL, MPL or SSPL, and nothing marked non-commercial. MIT, Apache-2.0, BSD and ISC are all fine. You ship a short LICENSES.md listing what you used.</span></li>
+    </ol>
+
+    <h3>Allowed vs. not allowed</h3>
+    <div class="grid g2">
+      <div class="card">
+        <h4>Allowed, without restriction</h4>
+        <ul>
+          <li>AI coding tools — all of them</li>
+          <li>Any language, framework, library or package</li>
+          <li>Open-source code, templates, UI kits, component libraries, starter kits (subject to licence limits)</li>
+          <li>Public docs, Stack Overflow, tutorials, your own past public repositories</li>
+          <li>Any hosting provider, design tool, stock asset or icon set</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Not allowed</h4>
+        <ul>
+          <li>Any code written for these specific problems before 18:00 on 30 August</li>
+          <li>Help from anyone who is not a registered member of your team</li>
+          <li>Sharing problems, solutions or approaches with another team during the event</li>
+          <li>AGPL / GPL / LGPL / MPL / SSPL or any other copyleft component</li>
+          <li>Any asset under a non-commercial or personal-use-only licence</li>
+          <li>Code owned by your employer or a client without the right to license it commercially</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note">
+      <p><strong>The line between AI tools and outside help:</strong> an AI tool is a tool, a person is a person. Prompt Claude for an entire component if you like. Do not text a friend to write one.</p>
+    </div>
+
+    <h3>Prayer, breaks and outages</h3>
+    <p>Maghrib and Isha both fall inside the build window. A prayer break is granted <strong>on request, at any point</strong> in the four hours — post in your team channel or tell your proctor, then go. There’s no fixed window and nothing to schedule. Your camera does not have to stay on, a formal check landing inside a requested break is not a violation, and no screenshot from it is used.</p>
+    <p>Separately, <strong>every team’s early-submission clock is reduced by a flat 20 minutes automatically</strong>, applied identically whether a team prays or not. The credit isn’t tied to asking for a break, and asking doesn’t increase it.</p>
+
+    <h3>Violations and consequences</h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Violation</th><th>Consequence</th></tr></thead>
+        <tbody>
+          <tr><td>Failing to appear within 3 minutes of a camera check, outside a requested prayer break</td><td>Warning, then disqualification</td></tr>
+          <tr><td>Refusing a screen share of your build environment</td><td>Immediate disqualification</td></tr>
+          <tr><td>Someone present who is not a registered team member</td><td>Immediate disqualification</td></tr>
+          <tr><td>Pre-written code for a released problem</td><td>Immediate disqualification</td></tr>
+          <tr><td>Sharing problems or solutions with another team</td><td>Both teams disqualified</td></tr>
+          <tr><td>Submitting work that is not yours, or breaching the licence rules</td><td>Immediate disqualification</td></tr>
+          <tr><td>Harassment or abuse of any participant or staff</td><td>Immediate removal</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:15px;color:#D5C6E6">Disqualifications are communicated privately; names are not published. Decisions are made by the event lead, and appeals may be raised within 48 hours of results, decided by someone not involved in the original decision.</p>
+  </div>
+</section>
+
+<!-- ============ SCORING ============ -->
+<section id="scoring">
+  <div class="wrap">
+    <h2><span class="num">05</span>How the 100 marks work</h2>
+    <p class="sub">Six categories. Two are automatic, four are judged. Categories 1, 4, 5 and 6 are scored once per problem and averaged across your two problems.</p>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>#</th><th>Category</th><th class="num">Marks</th><th>Source</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Functionality</td><td class="num">25</td><td>Judged</td></tr>
+          <tr><td>2</td><td>Early submission</td><td class="num">10</td><td>Automatic</td></tr>
+          <tr><td>3</td><td>Problem difficulty</td><td class="num">15</td><td>Automatic</td></tr>
+          <tr><td>4</td><td>Technical execution</td><td class="num">15</td><td>Judged</td></tr>
+          <tr><td>5</td><td>UI / UX</td><td class="num">15</td><td>Judged</td></tr>
+          <tr><td>6</td><td>Demo and documentation</td><td class="num">20</td><td>Judged</td></tr>
+          <tr class="total"><td></td><td>Total</td><td class="num">100</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:15px;color:#D5C6E6">The two automatic categories are 25 of 100 marks, and both are tied to work that actually functions. Difficulty and speed are multipliers on real work, not substitutes for it.</p>
+
+    <h3>1 · Functionality — 25 marks</h3>
+    <p>The heaviest category. Every problem lists <strong>4 required MVP bullets</strong>. They are pass or fail, and a judge checks each in under a minute.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Band</th><th class="num">Marks</th><th>Descriptor</th></tr></thead>
+        <tbody>
+          <tr><td>Exceptional</td><td class="num">23–25</td><td>Every MVP bullet works. Edge cases handled without being asked. The build shows the team understood the real pain in the scenario, not just the bullet list.</td></tr>
+          <tr><td>Strong</td><td class="num">18–22</td><td>Every MVP bullet works. Happy path solid, edges thin.</td></tr>
+          <tr><td>Adequate</td><td class="num">13–17</td><td>Most bullets work. One missing or partial. Demoable.</td></tr>
+          <tr><td>Weak</td><td class="num">7–12</td><td>Runs, but half the requirements are missing or the core flow breaks under real input.</td></tr>
+          <tr><td>Minimal</td><td class="num">1–6</td><td>Runs, but does not meaningfully address the problem.</td></tr>
+          <tr><td>Non-functional</td><td class="num">0</td><td>Does not run.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>2 · Early submission — 10 marks</h3>
+    <p>1.25 marks for every <strong>complete</strong> 30 minutes remaining when you stop working, measured <strong>from your last commit across both repositories</strong> — not from a form. Partial blocks don’t count: a last commit at 2h 15m gives 3 blocks (3.75), not 3.5.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Last commit at</th><th>Remaining</th><th class="num">Blocks</th><th class="num">Bonus</th></tr></thead>
+        <tbody>
+          <tr><td>3h 30m</td><td>30m</td><td class="num">1</td><td class="num">1.25</td></tr>
+          <tr><td>3h 00m</td><td>1h 00m</td><td class="num">2</td><td class="num">2.50</td></tr>
+          <tr><td>2h 30m</td><td>1h 30m</td><td class="num">3</td><td class="num">3.75</td></tr>
+          <tr><td>2h 00m</td><td>2h 00m</td><td class="num">4</td><td class="num">5.00</td></tr>
+          <tr><td>1h 30m</td><td>2h 30m</td><td class="num">5</td><td class="num">6.25</td></tr>
+          <tr><td>1h 00m</td><td>3h 00m</td><td class="num">6</td><td class="num">7.50</td></tr>
+          <tr><td>0h 30m</td><td>3h 30m</td><td class="num">7</td><td class="num">8.75 — practical max</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note warn">
+      <p><strong>The gate.</strong> The bonus is awarded only if at least <strong>3 of the 4 required MVP bullets are verified working on each of your two problems</strong>. Below that threshold the bonus is 0 no matter how early you stopped. Without the gate, one strategy dominates: pick two Hard problems, ship broken skeletons in the first hour, and beat teams that spent four hours building working software.</p>
+    </div>
+
+    <h3>3 · Problem difficulty — 15 marks</h3>
+    <p>Credit = tier value × (required MVP bullets working ÷ total required bullets for that problem). Two problems, so the ceiling is 15.0 (two Hard).</p>
+    <div class="grid g2">
+      <div class="card">
+        <h4>Tier values</h4>
+        <div class="tablewrap" style="margin:0">
+          <table style="min-width:0">
+            <thead><tr><th>Tier</th><th class="num">Full credit</th></tr></thead>
+            <tbody>
+              <tr><td>Easy</td><td class="num">5.0</td></tr>
+              <tr><td>Medium</td><td class="num">6.5</td></tr>
+              <tr><td>Hard</td><td class="num">7.5</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card">
+        <h4>Worked examples</h4>
+        <div class="tablewrap" style="margin:0">
+          <table style="min-width:0">
+            <thead><tr><th>Example</th><th>Calculation</th><th class="num">Credit</th></tr></thead>
+            <tbody>
+              <tr><td>Hard, 4/4 bullets</td><td>7.5 × 1.00</td><td class="num">7.5</td></tr>
+              <tr><td>Hard, 3/4 bullets</td><td>7.5 × 0.75</td><td class="num">5.6</td></tr>
+              <tr><td>Easy, 4/4 bullets</td><td>5.0 × 1.00</td><td class="num">5.0</td></tr>
+              <tr><td>Hard, does not run</td><td>7.5 × 0</td><td class="num">0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:15px;color:#D5C6E6">Picking Hard and shipping nothing is worth less than picking Easy and shipping something that works.</p>
+
+    <h3>4 · Technical execution — 15 marks</h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Band</th><th class="num">Marks</th><th>Descriptor</th></tr></thead>
+        <tbody>
+          <tr><td>Exceptional</td><td class="num">14–15</td><td>Clean data model reflecting the domain. Sensible separation of concerns. Deployed properly. Real edge-case handling.</td></tr>
+          <tr><td>Strong</td><td class="num">11–13</td><td>Reasonable structure, readable code, clean deployment.</td></tr>
+          <tr><td>Adequate</td><td class="num">7–10</td><td>Works, but structure is ad hoc and state is handled loosely.</td></tr>
+          <tr><td>Weak</td><td class="num">3–6</td><td>Copy-paste heavy, no discernible model, barely deployed.</td></tr>
+          <tr><td>Minimal</td><td class="num">0–2</td><td>Unrunnable outside the authors’ machines.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:15px;color:#D5C6E6">AI tool use is not penalised. A well-structured AI-assisted build scores higher than a badly structured hand-written one. Commit history is an integrity signal, not a scoring dimension.</p>
+
+    <h3>5 · UI / UX — 15 marks</h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Band</th><th class="num">Marks</th><th>Descriptor</th></tr></thead>
+        <tbody>
+          <tr><td>Exceptional</td><td class="num">13–15</td><td>A stranger can use it without instructions. Layout serves the task. Empty, loading and error states handled.</td></tr>
+          <tr><td>Strong</td><td class="num">10–12</td><td>Clean and usable, one or two rough states.</td></tr>
+          <tr><td>Adequate</td><td class="num">7–9</td><td>Functional and plain. Default components, no thought applied.</td></tr>
+          <tr><td>Weak</td><td class="num">3–6</td><td>Confusing layout, unlabelled controls, broken on narrow screens.</td></tr>
+          <tr><td>Minimal</td><td class="num">0–2</td><td>Unstyled output.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:15px;color:#D5C6E6">Not scored: decoration for its own sake. A plain clear interface beats a decorated confusing one.</p>
+
+    <h3>6 · Demo and documentation — 20 marks</h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Component</th><th class="num">Marks</th></tr></thead>
+        <tbody>
+          <tr><td>Demo video, no less than 60 seconds, shows it working, covers the MVP bullets</td><td class="num">8</td></tr>
+          <tr><td>README — what it does, how to run it, what is mocked, what is next</td><td class="num">6</td></tr>
+          <tr><td>LICENSES.md, complete and accurate</td><td class="num">4</td></tr>
+          <tr><td>Submission completeness — repo, live URL, picks declared, fields correct</td><td class="num">2</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:15px;color:#D5C6E6">The video scores above 4 only if a judge can verify claimed MVP bullets in the recording, and those bullets are then confirmed live. A polished video of a product that does not do what it shows scores nothing.</p>
+
+    <h3>Tiebreaks, in order</h3>
+    <ol>
+      <li>Higher Functionality score</li>
+      <li>Higher Functionality on the team’s better-scoring problem</li>
+      <li>Earlier last commit</li>
+      <li>Higher Technical execution</li>
+      <li>Event lead’s decision, recorded with reasons</li>
+    </ol>
+
+    <h3>How judging runs</h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Stage</th><th>What happens</th></tr></thead>
+        <tbody>
+          <tr><td>Auto-score</td><td>Difficulty and bonus computed from the archive. No human input.</td></tr>
+          <tr><td>Screen</td><td>Does the URL load, does it address the declared problem. Pass or fail, with a one-line written reason for every fail, confirmed by the Judging Lead before it is actioned.</td></tr>
+          <tr><td>Deep judge</td><td>Functionality, Technical execution, UI/UX, Demo scored against the bands above.</td></tr>
+          <tr><td>Calibration</td><td>Before live scoring, all judges independently score the same two anchor submissions and reconcile.</td></tr>
+          <tr><td>Double-scoring</td><td>Every submission within 5 marks of a prize boundary is scored by two judges and averaged.</td></tr>
+          <tr><td>Sign-off</td><td>Final table, tiebreaks, appeals.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note warn"><p>If the submitted code does not address the problem it was declared under, that problem’s <strong>difficulty credit is 0</strong> — not just its Functionality score.</p></div>
+  </div>
+</section>
+
+<!-- ============ SUBMISSION ============ -->
+<section id="submit">
+  <div class="wrap">
+    <h2><span class="num">06</span>What a complete submission looks like</h2>
+    <p class="sub">Five things, for <em>each</em> of your two problems. Miss one and the submission is incomplete.</p>
+
+    <ul class="check">
+      <li><strong>Source code</strong> submitted through the provided submission link. Submit as you build; make sure it’s uploaded before the deadline.</li>
+      <li><strong>A live URL</strong> that loads for a judge who has never seen your project, with no setup steps. Host it however you like.</li>
+      <li><strong>A README</strong> — what it does, how to run it, what is mocked, what you would build next.</li>
+      <li><strong>A demo video</strong>, no less than 60 seconds. Show it working. Do not explain your architecture.</li>
+      <li><strong>LICENSES.md</strong> listing every third-party dependency, template or asset with its licence.</li>
+    </ul>
+
+    <p>Declare your two picks in the pick form as soon as you decide — that’s separate from your submission and starts no clock.</p>
+
+    <h3>The archive you are judged against</h3>
+    <p>At 22:00 on event day, before anything is judged: every repository’s write access is revoked and its commit and push history captured, and every live URL gets an automated HTTP check plus a full-page screenshot, archived. Judging happens a week later against that archive — so a free-tier container that falls asleep on 3 September cannot cost you marks for work that was live at 22:00 on 30 August.</p>
+  </div>
+</section>
+
+<!-- ============ OWNERSHIP ============ -->
+<section id="ownership">
+  <div class="wrap">
+    <h2><span class="num">07</span>Ownership — read this one twice</h2>
+    <p class="sub">Section 9 of the Rulebook. The organisers themselves flag it as the clause to be certain about before registering.</p>
+
+    <div class="note warn">
+      <p>You assign to LofiStack <strong>all rights in the work you submit</strong> — source code, assets, designs and documentation, for both problems. LofiStack may use, modify, publish, commercialise or build on any submission without further permission or payment.</p>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h4>How it’s accepted</h4>
+        <p>Every member accepts individually. After registering, each member receives their own acceptance link with the full clause and a signature field. The team is not confirmed until all members have accepted, and a team leader cannot accept on anyone else’s behalf.</p>
+      </div>
+      <div class="card">
+        <h4>What you keep</h4>
+        <ul style="margin-bottom:0">
+          <li>The right to show your submission in your portfolio and say publicly that you built it</li>
+          <li>Ownership of pre-existing code and open-source components you brought in, under their original licences</li>
+          <li>Your name on your work — credited wherever a submission is used or published</li>
+        </ul>
+      </div>
+    </div>
+    <p>You also warrant that you own or have the right to assign everything you submit, and agree to indemnify LofiStack if a third party later claims rights in it. For participants under 18, that warranty and indemnity are given by the guardian who signs the consent form.</p>
+    <p style="color:#D5C6E6"><em>The organisers’ own wording:</em> “if you build something here and we later turn it into a product, that is ours to do. If that is not acceptable to you, please do not register.”</p>
+  </div>
+</section>
+
+<!-- ============ INTERNSHIPS ============ -->
+<section id="internship">
+  <div class="wrap">
+    <h2><span class="num">08</span>Internships — how they’re actually decided</h2>
+    <p class="sub">Up to three individuals are offered a three-month internship at LofiStack. Selection is individual, not team-based — a strong individual on a team that placed nowhere is fully eligible.</p>
+
+    <p>Proctors score every participant 1 to 5 on six signals, recorded live at the <strong>19:30, 20:30 and 21:30</strong> marks rather than reconstructed afterwards.</p>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Signal</th><th>What it looks like</th></tr></thead>
+        <tbody>
+          <tr><td>Decomposition</td><td>Planned before typing</td></tr>
+          <tr><td>Communication</td><td>Explains thinking clearly, asks good questions</td></tr>
+          <tr><td>Debugging under pressure</td><td>Stays methodical when something breaks at hour three</td></tr>
+          <tr><td>Ownership</td><td>Takes a piece and finishes it</td></tr>
+          <tr><td>Tool judgement</td><td>Directs AI tools and checks their output rather than pasting blindly</td></tr>
+          <tr><td>Composure</td><td>Behaviour when things go wrong, and toward teammates</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Month 1 is a structured training period. Months 2 and 3 are paid, subject to performance. Full terms come with the offer letter. <strong>Participants under 18 are not eligible for internship offers.</strong></p>
+    <div class="note"><p>The organisers say it plainly: these four hours are also an interview, and they think that beats a CV screen.</p></div>
+  </div>
+</section>
+
+<!-- ============ DATA ============ -->
+<section id="data">
+  <div class="wrap">
+    <h2><span class="num">09</span>Recording, data and privacy</h2>
+    <p class="sub">What is recorded, who can see it, and when it is deleted.</p>
+
+    <div class="grid g2">
+      <div class="card">
+        <h4>During the event</h4>
+        <ul style="margin-bottom:0">
+          <li>Your team room may be recorded for the full four hours, with a proctor present throughout</li>
+          <li>A screenshot is taken at each of the four announced camera checks (~18:30, 19:30, 20:30, 21:30)</li>
+          <li>Reviewed only to check fair play and resolve disputes or appeals</li>
+          <li>Never published, never used in marketing, never shared outside LofiStack</li>
+          <li>Access limited to a small named group of staff; downloading is disabled</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Collected at registration</h4>
+        <ul style="margin-bottom:0">
+          <li><strong>Per member:</strong> name, email, WhatsApp number, Discord username, date of birth, emergency contact name and phone, role, years of experience, optional LinkedIn or portfolio link</li>
+          <li><strong>Per team:</strong> team name, type, university or organisation, internet backup plan, how you heard about the event</li>
+          <li><strong>At verification:</strong> a 30-second video of the Team Leader holding photo ID, plus every member’s GitHub username</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Retention</h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>What</th><th>Kept for</th></tr></thead>
+        <tbody>
+          <tr><td>Team room recordings and screenshots</td><td>30 days, then deleted (on or before 29 September 2026, deletion logged)</td></tr>
+          <tr><td>Verification videos</td><td>Until 30 days after the event</td></tr>
+          <tr><td>Observation notes</td><td>12 months</td></tr>
+          <tr><td>National ID images</td><td>Until the payment is recorded, then deleted</td></tr>
+          <tr><td>Registration details</td><td>Until 30 September 2026, unless you opted in to future contact</td></tr>
+          <tr><td>Your submissions</td><td>Kept — they are assigned to LofiStack under the rulebook</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>You can ask to see the observation notes about you, and you can ask for your registration data to be deleted at any time — before the event that means withdrawing from it. If a rule changes for legal reasons, every registered participant is emailed and may withdraw and have their data deleted.</p>
+
+    <h3>Screen sharing</h3>
+    <p>Your proctor may ask to see your screen and will only ask to see your build environment. Close personal and work applications before 18:00. If a share reveals something confidential belonging to an employer or client, tell the proctor immediately and it is stopped and excluded.</p>
+  </div>
+</section>
+
+<!-- ============ CONDUCT ============ -->
+<section id="conduct">
+  <div class="wrap">
+    <h2><span class="num">10</span>Code of conduct</h2>
+    <p class="sub">“Treat everyone as a colleague you will see again.” That is the whole rule — everything else is detail. It applies in every event space, to participants, proctors, judges, moderators and organisers alike.</p>
+
+    <div class="grid g2">
+      <div class="card">
+        <h4>Expected</h4>
+        <ul style="margin-bottom:0">
+          <li>Assume good faith — people are building under time pressure on unfamiliar problems</li>
+          <li>Ask questions publicly in the Discord server so answers stay fair for everyone</li>
+          <li>Credit open-source work you use</li>
+          <li>Respect the proctors and your own teammates</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Not tolerated</h4>
+        <ul style="margin-bottom:0">
+          <li>Harassment of any kind — gender, religion, ethnicity, age, disability, appearance or background</li>
+          <li>Sexual language or imagery in any event space</li>
+          <li>Personal attacks, insults, public humiliation of a participant or team</li>
+          <li>Sharing anyone’s personal information without consent, including screenshots of private messages</li>
+          <li>Deliberate disruption of another team’s work, room or connection</li>
+          <li>Sustained aggression toward staff, judges or moderators — including after the event, over results</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Situation</th><th>Consequence</th></tr></thead>
+        <tbody>
+          <tr><td>Minor, first time</td><td>Private warning</td></tr>
+          <tr><td>Repeated, or ignored a warning</td><td>Removal from the Discord server, event participation reviewed</td></tr>
+          <tr><td>Serious</td><td>Immediate disqualification, forfeiture of any prize, removal from all channels</td></tr>
+          <tr><td>Severe</td><td>The above, plus permanent exclusion from all future LofiStack and AskTechGuy events</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:15px;color:#D5C6E6">A team is not disqualified for one member’s conduct unless the team knew and did nothing. Concerns about a proctor, judge or organiser go to the reporting address below, which deliberately does not reach the proctors or the event lead.</p>
+  </div>
+</section>
+
+<!-- ============ UNDER 18 ============ -->
+<section id="under18">
+  <div class="wrap">
+    <h2><span class="num">11</span>If you’re under 18</h2>
+    <p class="sub">Entry is allowed from age 16, with a one-page guardian consent form signed and uploaded with the team’s verification (between 24 and 27 August), before the team is confirmed.</p>
+    <div class="grid g2">
+      <div class="card">
+        <h4>What the guardian agrees to</h4>
+        <ul style="margin-bottom:0">
+          <li>Participation on 30 August, 18:00–22:00 — a late finish for a school-age participant</li>
+          <li>Camera on for four hours, room recorded, periodic screenshots</li>
+          <li>The ownership assignment, made on the child’s behalf, including the warranty and indemnity</li>
+          <li>Staff contact by email, WhatsApp and Discord — never private messages to a participant under 18</li>
+          <li>Prize money paid to the guardian’s account against the guardian’s ID and signature</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Form fields</h4>
+        <p>Participant full name · participant date of birth · team name · guardian full name · relationship to participant · guardian phone · guardian email · signature · date, plus a confirmation that points 1–5 have been read and accepted.</p>
+      </div>
+    </div>
+    <p><strong>Under-18 participants are not eligible for internship offers.</strong></p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="wrap">
+    <h2><span class="num">12</span>Questions, answered</h2>
+    <p class="sub">The things people ask most.</p>
+
+    <details><summary>Is it really free?</summary><div class="ans">Yes. No entry fee, no hidden charge, nothing to pay at any point.</div></details>
+    <details><summary>Do I need exactly three people?</summary><div class="ans">No. Two, three or four. Every team is scored the same way whatever its size.</div></details>
+    <details><summary>I don’t have a team yet — can you find me one?</summary><div class="ans">No. There is no team-matching pool. You arrive with your own team of two to four and register as a complete team. The Discord server only opens to teams once they are confirmed.</div></details>
+    <details><summary>Can I use AI tools?</summary><div class="ans">Yes, all of them, with no limits and nothing to declare. It’s how the work is done now, and they would rather watch you do it well.</div></details>
+    <details><summary>Can I ask questions before the day?</summary><div class="ans">Yes — live Q&amp;A on Discord, Saturday 29 August at 4:00 PM. Voice, about 45 minutes, optional. Anything except the problems, which nobody sees before 6:00 PM on the 30th. Outside that, ask in the Discord server rather than by DM so answers stay fair.</div></details>
+    <details><summary>What if my internet dies during the event?</summary><div class="ans">The clock keeps running — no restart, no extra time, no re-run. Post in your team channel from your phone when you’re back so there’s a record; being off camera during a reported outage is not itself a violation. The one exception is an area-wide outage taking your whole team offline at once, judged by the event lead on the night.</div></details>
+    <details><summary>Do I really have to keep my camera on for four hours?</summary><div class="ans">Yes. A proctor is in your room for the whole window, with four formal checks announced beforehand. Blurred or virtual backgrounds are completely fine, and your microphone stays muted unless you’re talking to your proctor. The proctor’s notes are also what internship offers are based on.</div></details>
+    <details><summary>Where do I host my project?</summary><div class="ans">Anywhere — free plans are fine. All that’s needed is a URL that opens for someone who has never seen your project, and it has to be up at 10:00 PM, because that’s when everything is health-checked and screenshotted. What’s captured then is what gets judged.</div></details>
+    <details><summary>How is it scored?</summary><div class="ans">100 marks across six areas. The full rubric is published before registration opens, so you can read exactly how you’ll be judged before deciding to enter.</div></details>
+    <details><summary>When do I find out if I won?</summary><div class="ans">Around 6 September, one week after the event. The extra week is deliberate, so every submission gets read properly. Every team that submits gets its own score breakdown with the judges’ notes.</div></details>
+    <details><summary>Who owns what I build?</summary><div class="ans">LofiStack. Section 9 of the Rulebook has it in full — you have to open that document and mark it read before the registration form appears, and every member then accepts it individually with their own email.</div></details>
+    <details><summary>Can I still get an internship offer if my team doesn’t win?</summary><div class="ans">Yes. Offers go to individuals, based on what proctors saw during the event, not on where your team finished.</div></details>
+    <details><summary>Can I enter if I’m under 18?</summary><div class="ans">Yes, from age 16, with a guardian consent form — one page, downloadable from the event site. Under-18 participants aren’t eligible for internship offers, and prize money is paid into a guardian’s account.</div></details>
+    <details><summary>What happens after I register?</summary><div class="ans">You first receive a registration confirmation email after submitting your application. If your team is selected, you then receive a verification confirmation email with the next steps to complete team verification.</div></details>
+  </div>
+</section>
+
+<!-- ============ REGISTER ============ -->
+<section id="register">
+  <div class="wrap">
+    <h2><span class="num">13</span>How registration works</h2>
+    <p class="sub">About four minutes, once you have everyone’s details in front of you. Registration closed Thursday 27 August, 23:59 BST.</p>
+    <ol>
+      <li><strong>Read the four documents.</strong> Rulebook, Scoring Rubric, Code of Conduct, and Recording &amp; Data Notice. The registration form stays locked until all four are opened and marked read — roughly ten minutes.</li>
+      <li><strong>Fill in your team.</strong> Team leader registers the whole group and becomes the single point of contact.</li>
+      <li><strong>Each member accepts the terms individually</strong> via their own email link, including the ownership clause. The leader cannot accept for anyone else.</li>
+      <li><strong>Team leader submits a 30-second verification video</strong> holding photo ID, plus every member’s GitHub username.</li>
+      <li><strong>Under 18?</strong> Guardian signs the consent form; the leader uploads it as a PDF with the team’s verification.</li>
+    </ol>
+    <p style="font-size:15px;color:#D5C6E6">Registration is uncapped, but places on event day are limited by proctor capacity. If verified teams exceed capacity, places are allocated in order of registration completion.</p>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="wrap">
+    <h2><span class="num">14</span>Contacts</h2>
+    <div class="grid g3">
+      <div class="card">
+        <h4>General questions</h4>
+        <p><a href="mailto:support@lofistack.com">support@lofistack.com</a></p>
+      </div>
+      <div class="card">
+        <h4>Concerns &amp; conduct reports</h4>
+        <p><a href="mailto:admin@lofistack.com">admin@lofistack.com</a><br>Deliberately not the proctor and not the event lead. Reports are handled privately.</p>
+      </div>
+      <div class="card">
+        <h4>Discord</h4>
+        <p><a href="https://discord.gg/9YHabNTUa" target="_blank" rel="noopener">discord.gg/9YHabNTUa</a><br>Confirmed teams only.</p>
+      </div>
+    </div>
+    <p style="margin-top:20px">Official event site: <a href="https://hackathon.lofistack.com" target="_blank" rel="noopener">hackathon.lofistack.com</a> · LofiStack: <a href="https://www.lofistack.com" target="_blank" rel="noopener">lofistack.com</a></p>
+
+    <div class="disclaimer">
+      Unofficial reference page. Every fact here is summarised from the public event site at hackathon.lofistack.com as it stood on 27 August 2026. Where this page and the official Rulebook, Scoring Rubric, Code of Conduct or Recording &amp; Data Notice differ, the official documents win.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <strong style="font-family:var(--display);font-size:18px;letter-spacing:.5px">LOFISTACK HACKATHON 2026</strong><br>
+      4 hours. 2 builds. Everyone leaves with something.
+    </div>
+    <div>
+      Run by LofiStack and AskTechGuy.<br>
+      Registration and event site on LofiStack; repositories and finalist showcase on AskTechGuy.
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Problems drop: 30 Aug 2026, 18:00 Bangladesh Standard Time (UTC+06)
+  var target = new Date('2026-08-30T18:00:00+06:00').getTime();
+  var note = document.getElementById('cdnote');
+  var end  = new Date('2026-08-30T22:00:00+06:00').getTime();
+  var f = document.querySelectorAll('[data-cd]');
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function tick(){
+    var now = Date.now(), diff = target - now, label = 'until problems drop — 30 Aug, 18:00 BST';
+    if (diff <= 0) {
+      diff = end - now;
+      label = 'left in the build window — closes 22:00 BST';
+      if (diff <= 0) {
+        diff = 0;
+        label = 'build window closed — results around 6 September';
+      }
+    }
+    var s = Math.floor(diff/1000);
+    var vals = { d: Math.floor(s/86400), h: Math.floor(s%86400/3600), m: Math.floor(s%3600/60), s: s%60 };
+    f.forEach(function(el){ el.textContent = pad(vals[el.dataset.cd]); });
+    if (note) note.textContent = label;
+  }
+  tick(); setInterval(tick, 1000);
+})();
+</script>
+</body>
+</html>
