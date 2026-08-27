@@ -13,6 +13,7 @@ supporting files on the day. Each thing gets its own folder.
 | Folder | Contents | Status |
 |---|---|---|
 | [`docs/`](docs/) | Single-page reference for the whole event — dates, prizes, all nine rules, the full 100-mark rubric, submission requirements, ownership terms, internship signals, FAQ. Self-contained HTML, no dependencies. | Done |
+| [`miasma 27 aug practice run/`](miasma%2027%20aug%20practice%20run/) | Team Miasma's 27 August practice drill — Relief Lens, a flood-relief coordination dashboard. Mirror of the private team repo; read its `MIRROR.md` first. | Archived |
 | `solutions/problem-01-<slug>/` | First chosen problem — source, README, LICENSES.md, demo video link. | Event day |
 | `solutions/problem-02-<slug>/` | Second chosen problem — same shape. | Event day |
 | `notes/` | Planning, problem picks, division of work, anything the team writes down. | As needed |
@@ -39,6 +40,12 @@ solutions/problem-NN-<slug>/
 
 The README and LICENSES.md are worth **10 of the 20 documentation marks** between them, so they are
 part of the build, not paperwork to do afterwards.
+
+**Mirrored folders** carry a `MIRROR.md` naming the repo they came from and the commit they were
+taken at. A mirror is an archive — building in it means the rest of the team never sees the work.
+
+**No secrets, ever.** This repository is public. Environment files stay out of it; each project
+ships a `.env.example` with key names and no values.
 
 ---
 
