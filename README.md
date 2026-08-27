@@ -1,107 +1,80 @@
 # Lofi-Hackathon
 
-A single-page, unofficial reference for the **LofiStack Hackathon 2026 — 4-Hour Build Sprint**.
+Working repository for the **LofiStack Hackathon 2026 — 4-Hour Build Sprint**
+(Sunday 30 August 2026, 18:00–22:00 Bangladesh time, online).
 
-Everything the public event site publishes across five separate documents — the Rulebook, the Scoring
-Rubric, the Code of Conduct, the Recording & Data Notice and the Guardian Consent Form — pulled into
-one scrollable page you can read in a sitting, search with Ctrl-F, and check during the build.
-
-**Live page:** `index.html` (open it locally, or serve it with GitHub Pages)
-**Official site:** <https://hackathon.lofistack.com>
+Everything for the event lives here — the reference material now, the two builds and their
+supporting files on the day. Each thing gets its own folder.
 
 ---
 
-## The event in one paragraph
+## Repository layout
 
-Sunday 30 August 2026, 18:00–22:00 Bangladesh Standard Time, entirely online and free. Twelve
-problems drop at 18:00 sharp, each tagged Easy / Medium / Hard. Your team of 2–4 picks exactly two
-and has four hours to get both live and working. BDT 50,000 in prizes across three teams, plus up to
-three three-month internships awarded to individuals on proctor observation rather than on where
-their team finished. All AI coding tools are allowed without restriction.
+| Folder | Contents | Status |
+|---|---|---|
+| [`docs/`](docs/) | Single-page reference for the whole event — dates, prizes, all nine rules, the full 100-mark rubric, submission requirements, ownership terms, internship signals, FAQ. Self-contained HTML, no dependencies. | Done |
+| `solutions/problem-01-<slug>/` | First chosen problem — source, README, LICENSES.md, demo video link. | Event day |
+| `solutions/problem-02-<slug>/` | Second chosen problem — same shape. | Event day |
+| `notes/` | Planning, problem picks, division of work, anything the team writes down. | As needed |
+
+Folders are created when there is something real to put in them, not before.
+
+---
+
+## Folder conventions
+
+**One folder per deliverable.** Nothing loose at the repository root except this README.
+
+**Solution folders** are named `problem-NN-<short-slug>` — for example
+`solutions/problem-03-invoice-splitter`. `NN` is the problem number as released at 18:00, not the
+order you picked them. Each one carries the five things a complete submission needs:
+
+```
+solutions/problem-NN-<slug>/
+├── README.md          what it does, how to run it, what is mocked, what is next
+├── LICENSES.md        every third-party dependency, template and asset, with its licence
+├── src/               the code
+└── DEMO.md            link to the demo video (60s minimum) and the live URL
+```
+
+The README and LICENSES.md are worth **10 of the 20 documentation marks** between them, so they are
+part of the build, not paperwork to do afterwards.
+
+---
+
+## Event facts, short version
 
 | | |
 |---|---|
-| Date | Sunday 30 August 2026 |
-| Build window | 18:00 → 22:00 BST — hard start, hard stop |
+| Build window | 30 Aug 2026, 18:00 → 22:00 BST — hard start, hard stop |
+| Problems | 12 released at 18:00, each team picks exactly 2 |
 | Team size | 2 to 4, scored identically regardless of size |
-| Problems | 12 released, each team picks exactly 2 |
 | Prizes | BDT 30,000 winner · BDT 10,000 to each of two runners-up |
-| Internships | Up to 3, three months, individual selection |
-| Cost | Free |
-| Eligibility | Bangladesh-based, minimum age 16 (under 18 needs guardian consent) |
+| Internships | Up to 3, three months, individual selection on proctor observation |
 | Results | ~6 September |
-| Run by | LofiStack and AskTechGuy |
+| AI tools | All allowed, no limits, nothing to declare |
+
+Full detail in [`docs/`](docs/). Official site: <https://hackathon.lofistack.com>
 
 ---
 
-## What's on the page
+## Three rules that decide marks
 
-| Section | What it covers |
-|---|---|
-| At a glance | Key numbers, the four-step flow, full fact table |
-| Dates | Every deadline from registration open to results, with a live countdown |
-| Prizes | Cash split, payout mechanics, tax and ID requirements |
-| Rules | The nine headline rules, allowed vs. not allowed, prayer/outage handling, violations table |
-| Scoring | All 100 marks — every band descriptor, the early-submission table, the difficulty formula, tiebreaks, judging stages |
-| Submission | The five required deliverables per problem, and the 22:00 archive |
-| Ownership | Section 9 in full — what you assign, what you keep |
-| Internships | The six observation signals and how offers are decided |
-| Data | What's recorded, who sees it, retention periods |
-| Conduct | The standard, what isn't tolerated, consequences ladder |
-| Under 18 | Guardian consent requirements and form fields |
-| FAQ | All 14 published questions |
-| Registration | The five-step process |
-| Contacts | Support, conduct reporting, Discord |
-
----
-
-## Three things worth knowing before you build
-
-**The speed bonus has a gate.** Early submission is worth up to 8.75 marks in practice (1.25 per
-complete 30 minutes remaining, measured from your *last commit*, not from a form) — but it pays **0**
-unless at least 3 of the 4 required MVP bullets are verified working on **each** of your two
-problems. Shipping two fast skeletons scores nothing.
+**The speed bonus has a gate.** Up to 8.75 marks in practice (1.25 per complete 30 minutes
+remaining, measured from your *last commit*), but it pays **0** unless at least 3 of the 4 required
+MVP bullets are verified working on **each** of the two problems.
 
 **Difficulty credit is scaled, not flat.** Credit = tier value × (bullets working ÷ total bullets).
-Hard is 7.5 at full delivery, but Hard-that-doesn't-run is 0 — worth less than Easy that works.
+Hard is 7.5 delivered in full, but Hard-that-doesn't-run is 0 — worth less than Easy that works.
 
-**22:00 is the only moment that counts.** Repository write access is revoked, every live URL is
-health-checked and screenshotted, and judging happens a week later against that archive. A free
-instance already asleep at 21:55 is on you; one that sleeps on 3 September can't hurt you.
-
----
-
-## Ownership notice
-
-Registering assigns **all rights in submitted work** — source code, assets, designs and documentation
-— to LofiStack, which may use, modify, publish or commercialise it without further permission or
-payment. Participants keep portfolio rights and name credit. Each team member accepts this
-individually via their own email link; a team leader cannot accept on anyone else's behalf. This is
-Section 9 of the Rulebook and it applies to work built during the event.
-
-That clause covers hackathon submissions. This repository is a reference page *about* the event,
-compiled from publicly published information.
+**22:00 is the only moment that counts.** Write access is revoked, every live URL is health-checked
+and screenshotted, and judging happens a week later against that archive.
 
 ---
 
-## Running it
+## Ownership
 
-No build step, no dependencies. One self-contained HTML file.
-
-```bash
-git clone https://github.com/RimjhimD/Lofi-Hackathon.git
-cd Lofi-Hackathon
-xdg-open index.html        # or: python3 -m http.server 8000
-```
-
-To publish with GitHub Pages: **Settings → Pages → Source: `main` / root**.
-
----
-
-## Accuracy
-
-Compiled from the public event site on **27 August 2026**. Where this page and the official Rulebook,
-Scoring Rubric, Code of Conduct or Recording & Data Notice differ, **the official documents win**.
-Unofficial and not endorsed by LofiStack or AskTechGuy.
-
-Corrections: open an issue or a PR.
+Work submitted to the hackathon is assigned to LofiStack under Section 9 of the Rulebook — they may
+use, modify, publish or commercialise it without further permission or payment. Participants keep
+portfolio rights and name credit. Each team member accepts this individually via their own email
+link. Read `docs/` before pushing anything you are not willing to assign.
